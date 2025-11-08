@@ -1,48 +1,50 @@
-import { Bot, BarChart3, FileText, Shield } from 'lucide-react'
+import { Bot, BarChart3, FileText, Shield } from "lucide-react";
 
 const features = [
   {
     icon: Bot,
-    title: 'Tenant-ready Chatbots',
-    desc: 'Spin up isolated workspaces for each customer with custom branding and permissions.'
+    title: "Multi-tenant bots",
+    desc: "Isolated data per workspace with role-based access and custom themes.",
   },
   {
     icon: FileText,
-    title: 'Docs & Web Ingestion',
-    desc: 'Index websites, PDFs, and knowledge bases with automatic updates and embeddings.'
+    title: "Knowledge ingestion",
+    desc: "Sync docs, URLs, and files. Automatic chunking, embeddings, and updates.",
   },
   {
     icon: BarChart3,
-    title: 'Analytics & Feedback',
-    desc: 'Track conversations, deflection rate, and user satisfaction in real time.'
+    title: "Analytics",
+    desc: "Track sessions, satisfaction, fallback rate, and top questions over time.",
   },
   {
     icon: Shield,
-    title: 'Enterprise-Grade Security',
-    desc: 'SSO/SAML, role-based access, and audit logs out of the box.'
-  }
-]
+    title: "Security & controls",
+    desc: "PII redaction, rate limits, domain allowlists, and audit logs included.",
+  },
+];
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Everything you need to ship a chatbot SaaS</h2>
-          <p className="mt-3 text-gray-600">From ingestion to analytics, we handle the heavy lifting so you can focus on your product.</p>
-        </div>
+    <section id="features" className="py-20 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 text-center">
+          Everything you need to launch
+        </h2>
+        <p className="mt-3 text-slate-600 text-center max-w-2xl mx-auto">
+          Production-grade features that make it simple to ship delightful assistants.
+        </p>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f) => (
-            <div key={f.title} className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-lg bg-blue-50 text-blue-700 grid place-items-center">
-                <f.icon className="h-5 w-5" />
+          {features.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="rounded-xl border bg-white p-6 shadow-sm hover:shadow-md transition">
+              <div className="h-10 w-10 rounded-md bg-gradient-to-tr from-violet-600 to-fuchsia-500 text-white grid place-items-center">
+                <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 font-semibold text-gray-900">{f.title}</h3>
-              <p className="mt-1.5 text-sm text-gray-600">{f.desc}</p>
+              <h3 className="mt-4 font-medium text-lg">{title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{desc}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
